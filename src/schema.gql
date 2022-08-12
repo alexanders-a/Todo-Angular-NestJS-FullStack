@@ -1,0 +1,20 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Category {
+  id: String!
+  title: String!
+}
+
+type Query {
+  categories: [Category!]!
+}
+
+type Mutation {
+  createCategory(categoryInput: CategoryCreateDTO!): Category!
+}
+
+input CategoryCreateDTO {
+  title: String!
+}
