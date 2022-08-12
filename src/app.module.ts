@@ -13,6 +13,7 @@ import { CategoryModule } from './category/category.module';
       driver: ApolloDriver,
       debug: false,
       playground: true,
+      introspection: true,
     }),
     TypeOrmModule.forRoot({
       type: 'postgres',
