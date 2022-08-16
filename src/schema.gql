@@ -2,19 +2,43 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type Todo {
+  id: Float!
+  text: String!
+  isCompleted: Boolean!
+  category: Category!
+}
+
 type Category {
-  id: String!
+  id: Int!
   title: String!
+  todos: [Todo!]
 }
 
 type Query {
+  getAllTodos: [Todo!]!
+  findOne(id: String!): Todo!
   categories: [Category!]!
+  category(id: Float!): Category!
 }
 
 type Mutation {
-  createCategory(categoryInput: CategoryCreateDTO!): Category!
+  createTodo(todoInput: TodoCreateDTO!): Todo!
+  update(todoInput: UpdateCategoryInput!): Todo!
+  createCategory(category: CreateCategoryInput!): Category!
+  removeCategory(id: Float!): Category!
 }
 
-input CategoryCreateDTO {
+input TodoCreateDTO {
+  text: String!
+  category: Int!
+}
+
+input UpdateCategoryInput {
+  id: Int!
+  isCompleted: Boolean!
+}
+
+input CreateCategoryInput {
   title: String!
 }

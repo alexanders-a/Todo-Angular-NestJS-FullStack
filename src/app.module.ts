@@ -3,10 +3,13 @@ import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { join } from 'path';
+import { TodoModule } from './todo/todo.module';
 import { CategoryModule } from './category/category.module';
+import { AppController } from './app.controller';
 
 @Module({
   imports: [
+    TodoModule,
     CategoryModule,
     GraphQLModule.forRoot<ApolloDriverConfig>({
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
@@ -26,7 +29,8 @@ import { CategoryModule } from './category/category.module';
       synchronize: true,
     }),
   ],
-  controllers: [],
+  controllers: [AppController],
+
   providers: [],
 })
 export class AppModule {}

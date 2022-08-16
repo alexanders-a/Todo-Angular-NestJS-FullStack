@@ -1,8 +1,8 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { Category } from './categories/category.entity';
-import { CategoryCreateDTO } from './dto/createCategory.input';
+import { CreateCategoryInput } from './dto/create-category.input';
+import { Category } from './entity/category.entity';
 
 @Injectable()
 export class CategoryService {
@@ -11,11 +11,27 @@ export class CategoryService {
     private categoryRepository: Repository<Category>,
   ) {}
 
-  async findAll(): Promise<Category[]> {
-    return this.categoryRepository.find();
+  create(category: CreateCategoryInput): Promise<Category> {
+    const cate = this.categoryRepository.create(category);
+    return this.categoryRepository.save(cate);
   }
-  async create(category: CategoryCreateDTO): Promise<Category> {
-    let cat = this.categoryRepository.create(category);
-    return this.categoryRepository.save(cat);
+
+  async findAll(): Promise<Category[]> {
+    return this.categoryRepository.find({ relations: ['todos']});
+  }
+
+  async findOne(id: any): Promise<Category> {
+    return this.categoryRepository.findOne(id);
+  }
+
+  async remove(id: number) {
+    let cate = this.findOne(id);
+    if (cate) {
+      let ret = await this.categoryRepository.delete(id);
+      if (ret.affected === 1) {
+        return cate;
+      }
+    }
+    throw new NotFoundException(`Record cannot find by id ${id}`);
   }
 }
