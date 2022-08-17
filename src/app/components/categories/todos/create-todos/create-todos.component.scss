@@ -1,0 +1,28 @@
+@mixin flex-items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.form-title {
+  @include flex-items();
+}
+
+.from-buttons {
+  @include flex-items();
+}
+
+.from-buttons button {
+  min-width: 50%;
+  padding: 10px;
+}
+
+.margin {
+  margin-top: 20px;
+}

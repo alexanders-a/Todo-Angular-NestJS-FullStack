@@ -1,0 +1,21 @@
+.header {
+  height: 85px;
+  background-color: #3dafda;
+  color: #fff;
+  justify-content: center;
+}
+
+.flex-header {
+  justify-content: space-between;
+}
+
+@mixin element($w, $h) {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: $w;
+  height: $h;
+  background: #314b99;
+  transform: translate(-50%, -50%);
+}

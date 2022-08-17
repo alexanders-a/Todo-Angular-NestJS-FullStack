@@ -1,0 +1,16 @@
+<div class="flex-card" *ngIf="categories">
+  <mat-card class="items-card" *ngFor="let category of categories">
+    <mat-card-title>{{ category.title | titlecase }}</mat-card-title>
+    <mat-divider></mat-divider>
+    <mat-card-actions>
+      <app-todos
+        class="flex-todos"
+        [id]="todo.id"
+        [text]="todo.text"
+        [isCompleted]="todo.isCompleted"
+        *ngFor="let todo of category.todos"
+      >
+      </app-todos>
+    </mat-card-actions>
+  </mat-card>
+</div>

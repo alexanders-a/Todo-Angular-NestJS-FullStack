@@ -1,0 +1,30 @@
+<div>
+  <form class="flex-form" (ngSubmit)="onSubmit()" [formGroup]="todoForm">
+    <div class="form-title">
+      <mat-label style="font-size: 25px; font-weight: 600; margin: 10px"
+        >Новая задача</mat-label
+      >
+    </div>
+    <mat-divider></mat-divider>
+    <mat-form-field class="margin">
+      <mat-label>Название задачи</mat-label>
+      <input
+        formControlName="todoText"
+        matInput
+        placeholder="Название задачи..."
+      />
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="margin">
+      <mat-label>Категория</mat-label>
+      <mat-select formControlName="category">
+        <mat-option *ngFor="let category of categories" [value]="category.id"
+          >{{ category.title }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div class="from-buttons">
+      <button mat-button mat-dialog-close color="primary">ОТМЕНА</button>
+      <button color="primary" mat-raised-button type="submit">ОК</button>
+    </div>
+  </form>
+</div>
