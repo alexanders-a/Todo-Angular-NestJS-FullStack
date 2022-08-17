@@ -6,7 +6,6 @@ import {
   FormBuilder,
 } from '@angular/forms';
 import { Apollo } from 'apollo-angular';
-import { Observable } from 'rxjs';
 import {
   CATEGORIES_DESCRIPTION,
   TODO_CREATE,
@@ -19,7 +18,6 @@ import {
 })
 export class CreateTodosComponent implements OnInit {
   todoName = new FormControl('', [Validators.required]);
-  users$!: Observable<{ uid: string }[]>;
   todoForm!: FormGroup;
   todoInput: any = '';
   categories: any[] = [];
@@ -54,7 +52,6 @@ export class CreateTodosComponent implements OnInit {
     }
     return;
   }
-
   createTodo(todoText: string, categoryId: number) {
     this.apollo
       .mutate({
