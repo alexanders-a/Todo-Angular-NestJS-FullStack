@@ -5,8 +5,7 @@ import { ApolloClientOptions, InMemoryCache } from '@apollo/client/core';
 import { HttpLink,} from 'apollo-angular/http';
 import { ApolloModule, APOLLO_OPTIONS } from 'apollo-angular';
 
-const uri = 'http://localhost:8080/graphql';
-// const uri = 'https://nest-step-2.herokuapp.com/graphql';
+const uri = 'https://dashboard.heroku.com/apps/backend-nestjs-graphql';
 
 
 
