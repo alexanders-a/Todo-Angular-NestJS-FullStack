@@ -12,11 +12,10 @@ import { AppController } from './app.controller';
     TodoModule,
     CategoryModule,
     GraphQLModule.forRoot<ApolloDriverConfig>({
-      autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
       driver: ApolloDriver,
-      debug: false,
-      playground: true,
+      autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
       introspection: true,
+      playground: true
     }),
     TypeOrmModule.forRoot({
       type: 'postgres',
@@ -26,6 +25,7 @@ import { AppController } from './app.controller';
       password: 'Cfwrtdbx1',
       database: 'postgres',
       entities: ['dist/**/*.entity{.ts,.js}'],
+      autoLoadEntities: true,
       synchronize: true,
     }),
   ],

@@ -19,8 +19,4 @@ export class Todo {
   @ManyToOne(() => Category, (category) => category.todos)
   @Field(() => Category)
   category: Category;
-
-//   @Column()
-//   @Field()
-//   categoryId: number;
 }

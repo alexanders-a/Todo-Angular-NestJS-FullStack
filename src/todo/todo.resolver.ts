@@ -34,8 +34,4 @@ export class TodoResolver {
     return this.todoService.findOne(id);
   }
 
-  // @ResolveField(() => Category)
-  // category(@Parent() todo: Todo) {
-  //   return this.todoService.getCategory(todo.categoryId);
-  // }
 }
