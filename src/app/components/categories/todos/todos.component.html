@@ -1,9 +1,9 @@
 <div>
   <mat-checkbox
     class="text-todo"
+    color="primary"
     (change)="onChange()"
     [checked]="isChecked"
-    color="primary"
   >
     <text [ngStyle]="{ textDecoration: isChecked ? 'line-through' : 'none' }">
       {{ text }}

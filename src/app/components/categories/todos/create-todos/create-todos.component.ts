@@ -26,7 +26,7 @@ export class CreateTodosComponent implements OnInit {
 
   initForm(): void {
     this.todoForm = this.formBuilder.group({
-      todoText: new FormControl('', [Validators.required, Validators.min(3)]),
+      todoText: new FormControl('', [Validators.required, Validators.min(2)]),
       category: new FormControl('', Validators.required),
     });
   }
